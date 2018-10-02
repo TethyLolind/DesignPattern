@@ -1,0 +1,25 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+*.cache
+*.props
+*.targets
+/ConsoleApp8-factory/ConsoleApp8/bin/Debug/netcoreapp2.1
+/ConsoleApp8-factory/ConsoleApp8/obj
+/ConsoleApp1-ascync/bin/Debug
+/ConsoleApp8-factory/factoryMethod/obj
+/ConsoleApp8-factory/factoryMethod/bin/Debug/netcoreapp2.1
+/ConsoleApp12-commond/obj
+/ConsoleApp12-commond/bin/Debug/netcoreapp2.1
+/ConsoleApp11-decorator++/obj/Debug/netcoreapp2.1
+/ConsoleApp10-decorator/obj
+/ConsoleApp10-decorator/bin/Debug/netcoreapp2.1
+/ConsoleApp1-ascync/obj/Debug
+/ConsoleApp8-factory/.vs/ConsoleApp8/v15
+/ConsoleApp8-factory/.vs/ConsoleApp8/DesignTimeBuild
+/ConsoleApp8-factory/.vs
+/ConsoleApp9-observer/obj
+/ConsoleApp9-observer/bin/Debug/netcoreapp2.1
+/ConsoleApp11-decorator++/obj
+/.vs
