@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp8\simpleFactory.csproj" />
+    <ProjectReference Include="..\ConsoleApp8\SimpleFactory.csproj" />
   </ItemGroup>
 
 </Project>
