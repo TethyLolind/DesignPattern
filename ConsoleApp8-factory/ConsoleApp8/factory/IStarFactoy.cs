@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SimpleFactory.stars;
 
-namespace ConsoleApp8
+namespace SimpleFactory.factory
 {
     public interface IStarFactoy
     {

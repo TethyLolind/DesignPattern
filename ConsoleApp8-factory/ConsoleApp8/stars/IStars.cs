@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace ConsoleApp8
+namespace SimpleFactory.stars
 {
     public interface IStars
     {

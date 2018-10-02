@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace ConsoleApp8
+namespace SimpleFactory.stars
 {
     public class Planet : IStars
     {

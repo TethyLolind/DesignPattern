@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConsoleApp10_decorator
+﻿namespace ConsoleApp10_decorator
 {
-
-
-    class Milk: IMaterials
+    class Mocha:IMaterials
     {
+        public long Price { get; set; }
         public IMaterials X { get; set; }
-        public long Price { get; set ; }
-        public string Description { get; set; }
-
         public long cost()
         {
             if (X == null)
@@ -19,8 +11,9 @@ namespace ConsoleApp10_decorator
                 return Price;
             }
             return Price + X.cost();
-
         }
+
+        public string Description { get; set; }
         public string GetName()
         {
             if (X == null)
@@ -29,6 +22,5 @@ namespace ConsoleApp10_decorator
             }
             return Description + X.GetName();
         }
-
     }
 }

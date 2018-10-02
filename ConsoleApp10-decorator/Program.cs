@@ -6,11 +6,11 @@ namespace ConsoleApp10_decorator
     {
         static void Main(string[] args)
         {
-            var a =new coast();
+            var a =new Coast();
             
-            var b= new milk();
+            var b= new Milk();
 
-            var c=new mocha();
+            var c=new Mocha();
 
             a.Price = 9;
             b.Price = 10;

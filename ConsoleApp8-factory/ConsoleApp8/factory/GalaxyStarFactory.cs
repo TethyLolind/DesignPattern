@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using SimpleFactory.stars;
 
-namespace ConsoleApp8
+namespace SimpleFactory.factory
 {
      class GalaxyStarFactory:IStarFactoy
     {

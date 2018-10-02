@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ConsoleApp12_commond.commonder;
 
 namespace ConsoleApp12_commond
 {

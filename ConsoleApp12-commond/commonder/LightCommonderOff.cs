@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ConsoleApp12_commond.actioner;
 
-namespace ConsoleApp12_commond
+namespace ConsoleApp12_commond.commonder
 {
 
 

@@ -1,9 +1,7 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using SimpleFactory.factory;
 
-namespace ConsoleApp8
+namespace SimpleFactory
 {
     class main
     {

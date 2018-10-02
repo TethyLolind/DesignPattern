@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverMethod", "ConsoleApp9-observer\ObserverMethod.csproj", "{4B4D5C0B-81B6-474E-BFFF-96AD5CCDD751}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp10-decorator", "ConsoleApp10-decorator\ConsoleApp10-decorator.csproj", "{8770293D-56FA-499F-92C9-CEC0634B1714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorMethod", "ConsoleApp10-decorator\DecoratorMethod.csproj", "{8770293D-56FA-499F-92C9-CEC0634B1714}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp11-decorator++", "ConsoleApp11-decorator++\ConsoleApp11-decorator++.csproj", "{B0C8BD90-DA8D-4C27-BC8E-8A37B29D46C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp12-commond", "ConsoleApp12-commond\ConsoleApp12-commond.csproj", "{0EC9258E-E617-4500-8889-4CCEC7424965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommondMethod", "ConsoleApp12-commond\CommondMethod.csproj", "{0EC9258E-E617-4500-8889-4CCEC7424965}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ascync", "ConsoleApp1-ascync\Ascync.csproj", "{F55AD94F-9121-4F7D-87D8-EC9F4AB7D000}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryMethod", "ConsoleApp8-factory\factoryMethod\FactoryMethod.csproj", "{271D6102-7ED1-42BE-8200-1187C617902F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simpleFactory", "ConsoleApp8-factory\ConsoleApp8\simpleFactory.csproj", "{734B91BC-3D67-45F9-A4A7-555897A7C981}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFactory", "ConsoleApp8-factory\ConsoleApp8\SimpleFactory.csproj", "{734B91BC-3D67-45F9-A4A7-555897A7C981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleApp12_commond
+namespace ConsoleApp12_commond.actioner
 {
     internal class BedroomLight:IActioner
     {

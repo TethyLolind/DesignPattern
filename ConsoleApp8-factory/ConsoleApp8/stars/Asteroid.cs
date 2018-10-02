@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ConsoleApp8
+namespace SimpleFactory.stars
 {
     public class Asteroid : IStars
     {
