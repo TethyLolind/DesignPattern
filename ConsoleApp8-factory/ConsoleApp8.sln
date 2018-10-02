@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simpleFactory", "ConsoleApp8\simpleFactory.csproj", "{A57D484B-BD44-4258-928E-44B3DA96E0FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "factoryMethod", "factoryMethod\factoryMethod.csproj", "{2F07066D-E18F-45A1-B13C-644102FF5010}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A57D484B-BD44-4258-928E-44B3DA96E0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57D484B-BD44-4258-928E-44B3DA96E0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57D484B-BD44-4258-928E-44B3DA96E0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57D484B-BD44-4258-928E-44B3DA96E0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F07066D-E18F-45A1-B13C-644102FF5010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F07066D-E18F-45A1-B13C-644102FF5010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F07066D-E18F-45A1-B13C-644102FF5010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F07066D-E18F-45A1-B13C-644102FF5010}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8AAAA75-5919-4136-8E7F-2968D3CC0B87}
+	EndGlobalSection
+EndGlobal
