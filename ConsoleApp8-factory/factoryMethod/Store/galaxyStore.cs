@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
-using ConsoleApp8;
+using FactoryMethod.Star.galaystar;
 
-namespace factoryMethod
+namespace FactoryMethod.Store
 {
     class galaxyStore : StarStore
     {
-        protected override Star CreatStar(string starType)
+        protected override Star.Star CreatStar(string starType)
         {
-            Star returnStar;
+            Star.Star returnStar;
             List<string> StarType = new List<string> { "planet", "stella", "asteroid" };
             starType = starType.ToLower();
             if (!StarType.Contains(starType))

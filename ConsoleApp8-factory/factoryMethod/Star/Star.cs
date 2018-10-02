@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace factoryMethod
+namespace FactoryMethod.Star
 {
     public class Star//抽象工厂的话 就是把银河和仙女作为两个星子类  然后
     {

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FactoryMethod.Store;
 
-namespace factoryMethod
+namespace FactoryMethod
 {
     class Program
     {

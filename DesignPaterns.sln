@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp11-decorator++", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp12-commond", "ConsoleApp12-commond\ConsoleApp12-commond.csproj", "{0EC9258E-E617-4500-8889-4CCEC7424965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1-ascync", "ConsoleApp1-ascync\ConsoleApp1-ascync.csproj", "{F55AD94F-9121-4F7D-87D8-EC9F4AB7D000}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ascync", "ConsoleApp1-ascync\Ascync.csproj", "{F55AD94F-9121-4F7D-87D8-EC9F4AB7D000}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "factoryMethod", "ConsoleApp8-factory\factoryMethod\factoryMethod.csproj", "{271D6102-7ED1-42BE-8200-1187C617902F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryMethod", "ConsoleApp8-factory\factoryMethod\FactoryMethod.csproj", "{271D6102-7ED1-42BE-8200-1187C617902F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simpleFactory", "ConsoleApp8-factory\ConsoleApp8\simpleFactory.csproj", "{734B91BC-3D67-45F9-A4A7-555897A7C981}"
 EndProject
