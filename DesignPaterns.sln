@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp9-observer", "ConsoleApp9-observer\ConsoleApp9-observer.csproj", "{4B4D5C0B-81B6-474E-BFFF-96AD5CCDD751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverMethod", "ConsoleApp9-observer\ObserverMethod.csproj", "{4B4D5C0B-81B6-474E-BFFF-96AD5CCDD751}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp10-decorator", "ConsoleApp10-decorator\ConsoleApp10-decorator.csproj", "{8770293D-56FA-499F-92C9-CEC0634B1714}"
 EndProject
