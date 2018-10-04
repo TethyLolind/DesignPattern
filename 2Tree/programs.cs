@@ -28,6 +28,8 @@ namespace _2Tree
             //a.Remove(new BinaryTreeNode<int>(199));
             a.Remove(new BinaryTreeNode<int>(111));
             Console.WriteLine(a.Contains(new BinaryTreeNode<int>(111)).Item1);
+            Console.WriteLine(a.Count());
+            
         }
     }
 }
