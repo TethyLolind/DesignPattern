@@ -40,7 +40,11 @@ namespace _2Tree
             }
         }
 
-        public BinaryTreeNode<T> ParentTreeNode { get; set; }
+        public BinaryTreeNode<T> ParentTreeNode
+        {
+            get { return _parentTreeNode; }
+            set { _parentTreeNode = value; }
+        }
     }
 
     public class BinaryTree

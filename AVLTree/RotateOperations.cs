@@ -56,21 +56,21 @@ namespace AVLTree
         public override void AddTo(BinaryTreeNode<int> addInNode)
         {
             base.AddTo(addInNode);
-            Balance();
+            Balance(Head);
         }
 
         public override void Remove(BinaryTreeNode<int> searchNode)
         {
             base.Remove(searchNode);
-            Balance();
+            Balance(Head);
         }
 
-        internal void Balance()
+        internal void Balance(BinaryTreeNode<int> node)
         {
-            var ops = new AvlRotateOperations(this);
-            if (BalanceState(Current)=="right")
+            var ops = new AvlRotateOperations(this,node);
+            if (BalanceState(node) =="right")
             {
-                if (Current.RightTreeNode!=null&&BalanceFactor(Current.RightTreeNode)<0)
+                if (node.RightTreeNode!=null&&BalanceFactor(node.RightTreeNode)<0)
                 {
                     
                     ops.LeftRightRotate();
@@ -81,9 +81,9 @@ namespace AVLTree
                    
                 }
             }
-            else if (BalanceState(Current) == "left")
+            else if (BalanceState(node) == "left")
             {
-                if (Current.LeftTreeNode!=null&& BalanceFactor(Current.LeftTreeNode) > 0)
+                if (node.LeftTreeNode!=null&& BalanceFactor(node.LeftTreeNode) > 0)
                 {
                     ops.RightLeftRotate();
                 }
@@ -91,6 +91,11 @@ namespace AVLTree
                 {
                     ops.RightRotate();
                 }
+            }
+            else
+            {
+                Balance(node.LeftTreeNode);
+                Balance(node.RightTreeNode);
             }
         }
 
@@ -106,36 +111,107 @@ namespace AVLTree
 
     class AvlRotateOperations
     {
-        public TreeClass Tree { get; }
+        private TreeClass tree;
+        private BinaryTreeNode<int> node;
+        private string nodeLocation;
 
-        public AvlRotateOperations(TreeClass e)
+        public AvlRotateOperations(TreeClass e,BinaryTreeNode<int> node)
         {
-            this.Tree = e;
+            this.tree = e;
+            this.node = node;
             //如果是删除操作时 current就是被删的哪一个结点 如果是被加入时 cureent时被加入的节点的父节点
+            if (node.ParentTreeNode.Value>node.Value)
+            {
+                this.nodeLocation = "left";
+            }
+            else
+            {
+                this.nodeLocation = "right";
+            }
+
         }
 
        
 
         public void LeftRotate()
         {
-           
+           var newRootNode = node.RightTreeNode;
+            //step1:
+            if (this.nodeLocation=="left")
+            {
+                node.ParentTreeNode.RightTreeNode = newRootNode;
+            }
+            else if (this.nodeLocation == "right")
+            {
+                node.ParentTreeNode.LeftTreeNode = newRootNode;
+            }
+            //step2:
+            node.RightTreeNode = newRootNode.LeftTreeNode;
+            //step3:
+            newRootNode.LeftTreeNode = node;   
 
 
         }
 
         public void RightRotate()
         {
-            
+            var newRootNode = node.LeftTreeNode;
+            //step1:
+            if (this.nodeLocation=="left")
+            {
+                node.ParentTreeNode.LeftTreeNode = newRootNode;
+            }
+            else if (this.nodeLocation == "right")
+            {
+                node.ParentTreeNode.RightTreeNode = newRootNode;
+            }
+            //step2:
+            node.LeftTreeNode = newRootNode.RightTreeNode;
+            //step3:
+            newRootNode.RightTreeNode = node;            
 
         }
 
         public void LeftRightRotate()
         {
+            var newRootNode = node.RightTreeNode.LeftTreeNode;
 
+
+            node.RightTreeNode = newRootNode;
+
+            newRootNode.RightTreeNode = newRootNode.ParentTreeNode;
+
+            if (this.nodeLocation == "left")
+            {
+                node.ParentTreeNode.LeftTreeNode = newRootNode;
+            }
+            else if (this.nodeLocation == "right")
+            {
+                node.ParentTreeNode.RightTreeNode = newRootNode;
+            }
+
+            newRootNode.LeftTreeNode = node;
         }
 
         public void RightLeftRotate()
         {
+            var newRootNode = node.LeftTreeNode.RightTreeNode;
+
+
+            node.LeftTreeNode =newRootNode;
+
+            newRootNode.LeftTreeNode = newRootNode.ParentTreeNode;
+
+            if (this.nodeLocation == "left")
+            {
+                node.ParentTreeNode.LeftTreeNode = newRootNode;
+            }
+            else if (this.nodeLocation == "right")
+            {
+                node.ParentTreeNode.RightTreeNode = newRootNode;
+            }
+
+            newRootNode.RightTreeNode = node;
 
         }
     }
