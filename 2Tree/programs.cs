@@ -12,23 +12,16 @@ namespace _2Tree
         {
             Random random = new Random();
             
-            BinaryTree a=new BinaryTree(new BinaryTreeNode<int>(111));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-            a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
-
+            BinaryTree a=new BinaryTree(new BinaryTreeNode<int>(50));
+            for (int i = 0; i < 100; i++)
+            {
+                a.AddTo(new BinaryTreeNode<int>(random.Next(1, 100)));
+            }
             a.AddTo(new BinaryTreeNode<int>(199));
 
-            //a.Remove(new BinaryTreeNode<int>(199));
-            a.Remove(new BinaryTreeNode<int>(111));
-            Console.WriteLine(a.Contains(new BinaryTreeNode<int>(111)).Item1);
-            Console.WriteLine(a.Count());
+            a.Remove(new BinaryTreeNode<int>(50));
+            Console.WriteLine(a.Contains(new BinaryTreeNode<int>(199)).Item1);
+            Console.WriteLine("总个数:{0}",a.Count());
             
         }
     }

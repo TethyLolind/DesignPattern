@@ -7,89 +7,119 @@ using System.Threading.Tasks;
 
 namespace _2Tree
 {
-    class BinaryTreeNode<T>
+    public class BinaryTreeNode<T>
     {
-        private BinaryTreeNode<T> _leftTreeNode;
-        private BinaryTreeNode<T> _rightTreeNode;
-        private T _value;
-      
-
         public BinaryTreeNode(T value)
         {
-            this._value = value;
+            this.Value = value;
         }
 
-        public T Value { get => _value; set => _value = value; }
+        public T Value { get; set; }
 
-        internal BinaryTreeNode<T> LeftTreeNode { get => _leftTreeNode; set => _leftTreeNode = value; }
-        internal BinaryTreeNode<T> RightTreeNode { get => _rightTreeNode; set => _rightTreeNode = value; }
+        private BinaryTreeNode<T> _leftTreeNode;
+        private BinaryTreeNode<T> _rightTreeNode;
+        private BinaryTreeNode<T> _parentTreeNode;
 
+
+        public  BinaryTreeNode<T> LeftTreeNode
+        {
+            get { return _leftTreeNode; }
+            set
+            {
+                _leftTreeNode = value;
+                value._parentTreeNode = this;
+            }
+        }
+
+        public BinaryTreeNode<T> RightTreeNode {
+            get { return _rightTreeNode; }
+            set
+            {
+                _rightTreeNode = value;
+                value._parentTreeNode = this;
+            }
+        }
+
+        public BinaryTreeNode<T> ParentTreeNode { get; set; }
     }
 
-    class BinaryTree
+    public class BinaryTree
     {
-        private BinaryTreeNode<int> _head;
-        private BinaryTreeNode<int> _current;
+        public  BinaryTreeNode<int> Head;
+        public BinaryTreeNode<int> Current;
         private int count = 0;
 
         public BinaryTree(BinaryTreeNode<int> headNode)
         {
-            _head = headNode;
-            _current = _head;
+            Head = headNode;
+            Current = Head;
         }
 
-        public void AddTo(BinaryTreeNode<int> addInNode)
+        public virtual void AddTo(BinaryTreeNode<int> addInNode)
         {
-            _current = _head;
+            Current = Head;
             AddToRe(addInNode);
+
+            #region avl++
+
+           
+
+            #endregion
+
         }
+
+
 
         private void AddToRe(BinaryTreeNode<int> addInNode)
         {
-            if (_current != null)
+            if (Current != null)
             {
-                var isLargerThanCurrent = CompareTo(addInNode, _current);
-                if (isLargerThanCurrent > 0)
+                var isLargerThanCurrent = CompareTo(addInNode, Current);
+                if (isLargerThanCurrent > 0)//比当前大
                 {
-                    if (_current.RightTreeNode == null)
+                    if (Current.RightTreeNode == null)
                     {
-                        _current.RightTreeNode = addInNode;
+                        Current.RightTreeNode = addInNode;
+                        
                     }
                     else
                     {
-                        _current = _current.RightTreeNode;
+                        Current = Current.RightTreeNode;
                         AddToRe(addInNode);
                     }
                 }
-                else if (isLargerThanCurrent < 0)
+                else if (isLargerThanCurrent < 0)//比当前小
                 {
-                    if (_current.LeftTreeNode == null)
+                    if (Current.LeftTreeNode == null)
                     {
-                        _current.LeftTreeNode = addInNode;
+                        Current.LeftTreeNode = addInNode;
+                        
                     }
                     else
                     {
-                        _current = _current.LeftTreeNode;
+                        Current = Current.LeftTreeNode;
                         AddToRe(addInNode);
                     }
                 }
-                else
+                else//两者相等
                 {
-                    if (_current.RightTreeNode != null)
+                    if (Current.RightTreeNode != null)
                     {
 
-                        _current = _current.RightTreeNode;
+                        Current = Current.RightTreeNode;
                         AddToRe(addInNode);
                     }
                     else
                     {
-                        _current.RightTreeNode = addInNode; //相同的加在右边
+                        Current.RightTreeNode = addInNode; //相同的加在右边
+                        
                     }
                 }
             }
             else
             {
-                _head = addInNode;
+                Head = addInNode;
+                addInNode.ParentTreeNode = null;
             }
         }
 
@@ -113,32 +143,32 @@ namespace _2Tree
             BinaryTreeNode<int> parentNode)
         {
 
-            var isLargerThanCurrent = CompareTo(searchNode, _current);
-            if (isLargerThanCurrent > 0)
+            var isLargerThanCurrent = CompareTo(searchNode, Current);
+            if (isLargerThanCurrent > 0)//比当前大
             {
-                if (_current.RightTreeNode == null)
+                if (Current.RightTreeNode == null)//当前没有更大的
                 {
                     return new Tuple<bool, BinaryTreeNode<int>>(false, null);
                 }
-
-                parentNode = _current;
-                _current = _current.RightTreeNode;
+                //当前右边有更大的
+                parentNode = Current;
+                Current = Current.RightTreeNode;
                 return ContainsRe(searchNode, parentNode);
 
 
             }
-            else if (isLargerThanCurrent < 0)
+            else if (isLargerThanCurrent < 0)//比当前小
             {
-                if (_current.LeftTreeNode == null)
+                if (Current.LeftTreeNode == null)//当前没有更小的
                 {
                     return new Tuple<bool, BinaryTreeNode<int>>(false, null);
                 }
 
-                parentNode = _current;
-                _current = _current.LeftTreeNode;
+                parentNode = Current;
+                Current = Current.LeftTreeNode;
                 return ContainsRe(searchNode, parentNode);
             }
-            else
+            else//正好就是
             {
                 return new Tuple<bool, BinaryTreeNode<int>>(true, parentNode);
             }
@@ -148,52 +178,66 @@ namespace _2Tree
 
         public Tuple<bool, BinaryTreeNode<int>> Contains(BinaryTreeNode<int> searchNode)
         {
-            _current = _head;
-            if (_current == null)
+            Current = Head;
+            if (Current == null)
             {
                 return new Tuple<bool, BinaryTreeNode<int>>(false, null);
             }
-
-            BinaryTreeNode<int> parent = null;
-            return ContainsRe(searchNode, parent);
+            
+            return ContainsRe(searchNode, Current.ParentTreeNode);
         }
 
 
-        public void Remove(BinaryTreeNode<int> searchNode)
+        public virtual void Remove(BinaryTreeNode<int> searchNode)
+        {
+            RemoveRe(searchNode);
+            
+        }
+
+        public void RemoveRe(BinaryTreeNode<int> searchNode)
         {
             var searchResult = Contains(searchNode);
-            if (!searchResult.Item1)
+            if (!searchResult.Item1)//没找到
             {
                 Console.WriteLine("do not have this node");
             }
-            else
+            else//找到了
             {
                 var parentNode = searchResult.Item2;
                 if (parentNode == null) //如果删除的是头结点
                 {
-                    var mostLeft = ToMostLeft(_head.RightTreeNode); //找到最左
-                    mostLeft.LeftTreeNode = _head.LeftTreeNode; //左子书放在柚子树最左
-                    _head = _head.RightTreeNode; //右子书上提
+                    var mostLeft = ToMostLeft(Head.RightTreeNode); //找到右子树最左
+
+                    mostLeft.LeftTreeNode = Head.LeftTreeNode; //左子树放在右子树最左的节点的左节点上
+                    
+
+                    Head = Head.RightTreeNode; //右子书上提
+                    Head.ParentTreeNode = null;
 
                     return;
                 }
 
-                if (searchNode.Value > parentNode.Value) //是rightnode
+                if (searchNode.Value > parentNode.Value) //找到的点 是parent的右节点
                 {
-                    if (parentNode.RightTreeNode.RightTreeNode != null) //要移除的节点的  右不为空
+                    if (parentNode.RightTreeNode.RightTreeNode != null) //要移除的节点的  右节点不为空
                     {
+                        parentNode.RightTreeNode = parentNode.RightTreeNode.RightTreeNode;//设儿子
+                      
+
                         if (parentNode.RightTreeNode.LeftTreeNode == null) //左空右不空
                         {
-                            parentNode.RightTreeNode = parentNode.RightTreeNode.RightTreeNode;
+                            
                         }
-                        else
+                        else//左右都不空
                         {
                             var mostLeft = ToMostLeft(parentNode.RightTreeNode.RightTreeNode);
-                            mostLeft.LeftTreeNode = parentNode.RightTreeNode.LeftTreeNode;
+                            
+                            mostLeft.LeftTreeNode = parentNode.RightTreeNode.LeftTreeNode;//设儿子
+                    
                         }
 
                     }
-                    else
+                    else //要移除的节点的  右节点为空
                     {
                         if (parentNode.RightTreeNode.LeftTreeNode == null) //左右都为空
                         {
@@ -201,22 +245,26 @@ namespace _2Tree
                         }
                         else //左不空右空
                         {
-                            parentNode.RightTreeNode = parentNode.RightTreeNode.LeftTreeNode;
+                            parentNode.RightTreeNode = parentNode.RightTreeNode.LeftTreeNode;//设儿子
+                         
                         }
                     }
                 }
-                else //是leftnode
+                else ////找到的点 是parent的左节点
                 {
                     if (parentNode.LeftTreeNode.RightTreeNode != null) //要移除的节点的右节点不为空
                     {
+                        parentNode.LeftTreeNode = parentNode.LeftTreeNode.RightTreeNode;
+     
                         if (parentNode.LeftTreeNode.LeftTreeNode == null)
                         {
-                            parentNode.LeftTreeNode = parentNode.LeftTreeNode.RightTreeNode;
+                            
                         }
                         else
                         {
                             var mostLeft = ToMostLeft(parentNode.RightTreeNode.RightTreeNode);
                             mostLeft.LeftTreeNode = parentNode.LeftTreeNode.LeftTreeNode;
+
                         }
 
                     }
@@ -229,6 +277,7 @@ namespace _2Tree
                         else //左不空右空
                         {
                             parentNode.LeftTreeNode = parentNode.LeftTreeNode.LeftTreeNode;
+         
                         }
                     }
                 }
@@ -250,35 +299,34 @@ namespace _2Tree
 
         public int Count()
         {
-            _current = _head;
-            return Tranversal(_current);
+            Current = Head;
+            return Tranverse();
         }
 
-        public int Tranversal(BinaryTreeNode<int> node)
+        private int Tranverse()
         {
-            var current = node;
-            count++;
-            if (current.LeftTreeNode==null)
+            if (this.Current==null)
             {
-                if (current.RightTreeNode == null)
-                {
-                    return count;
-                }
-                else
-                {
-                    Tranversal(current.RightTreeNode);
-                    return count;
-                }
-                
-            }
-            else
-            {
-                Tranversal(current.LeftTreeNode);
-                Tranversal(current.RightTreeNode);
-                return count;
+                return 0;
             }
 
-            
+            int count = 0;
+            PreOrder(this.Current, ref count);
+            return count;
+
+
+        }
+
+        private void PreOrder(BinaryTreeNode<int> node,ref int count)
+        {
+            if (node==null)
+            {
+                return;
+            }
+            Console.WriteLine(node.Value);
+            count++;
+            PreOrder(node.LeftTreeNode,ref count);
+            PreOrder(node.RightTreeNode, ref count);
             
         }
 
